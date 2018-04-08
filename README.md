@@ -17,7 +17,7 @@ Asoke is a dangerously simple way to add a view controller to your iOS Swift app
 The view controller is simple to present. The following is an example for presenting the rectangualar crop VC:
       
         // You will need to init with an image and a cropping rect
-        let image = UIImage(named: "yourImage")!
+        guard let image = UIImage(named: "yourImage") else { return }
         let rect = CGRect(x: 10, y: 150, width: 300, height: 240)
         let rectVC = AsokeRectangularVC(croppingRect: rect, withImageToCrop: image)
         
@@ -28,7 +28,7 @@ The view controller is simple to present. The following is an example for presen
 And the following is an example for presenting the circular crop VC:
 
         // Need to init with an image and a radius
-        let image = UIImage(named: "me")!
+        guard let image = UIImage(named: "me") else { return }
         let circleVC = AsokeCircularVC(circleRadius: 158, withImageToCrop: image)
         circleVC.delegate = self
         self.present(circleVC, animated: true, completion: nil)
